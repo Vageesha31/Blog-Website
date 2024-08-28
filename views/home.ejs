@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs"); -%>
+
+<h1>Home</h1>
+<p><%= homeStartingContent %></p>
+
+<% function truncate(str, no_words) { %>
+    <% return str.split(" ").splice(0,no_words).join(" "); %>
+<% } %>
+
+<% publishs.forEach(function(post){  %>
+
+  <h3><%=post.postTitle%></h3>
+  <h6> <%= truncate(post.postBody,10)  %>... </h6>
+  <a href="/post/<%= post.postTitle %>" >Read More </a>
+
+<%})%>
+
+<%- include("partials/footer.ejs"); -%>
